@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Autonomous Vehicle - Scientific Series</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -310,6 +310,8 @@
             background: var(--dark);
             border-radius: 10px;
             border-left: 4px solid var(--accent);
+            overflow-x: hidden;
+            word-wrap: break-word;
         }
         
         .internal {
@@ -328,6 +330,9 @@
             margin: 1rem 0;
             border: 1px solid #00ffea44;
             text-align: left;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
         
         .next {
