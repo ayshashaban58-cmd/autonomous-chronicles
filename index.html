@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAWN01 – Autonomous Chronicles</title>
+    <title>Autonomous Vehicle - Scientific Series</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -39,7 +39,7 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 3rem;
             flex-wrap: wrap;
         }
         
@@ -107,7 +107,7 @@
         
         .glitch {
             font-family: 'Orbitron', sans-serif;
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 900;
             color: var(--accent);
             text-shadow: 0 0 10px var(--accent);
@@ -125,19 +125,13 @@
         }
         
         .subtitle { 
-            font-size:1.4rem; 
-            margin-top:1rem; 
-            color:#aaa; 
-            letter-spacing:3px; 
+            font-size:1rem; 
+            margin-top:1.5rem; 
+            color:#888; 
+            letter-spacing:1px; 
             font-weight: 300;
-        }
-        
-        .tagline {
-            font-size: 1.1rem;
-            margin-top: 2rem;
-            color: #ccc;
-            max-width: 700px;
-            padding: 0 2rem;
+            max-width: 800px;
+            line-height: 1.6;
         }
         
         .spark {
@@ -162,6 +156,76 @@
             padding: 2rem;
         }
         
+        /* Welcome Box */
+        .welcome-box {
+            background: rgba(20,20,30,0.8);
+            border: 1px solid #00ffea33;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            margin: 3rem auto;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0,255,234,0.2);
+        }
+        
+        .welcome-box h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--accent);
+        }
+        
+        .welcome-quote {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #ccc;
+            font-style: italic;
+        }
+        
+        /* Series Grid */
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .series-card {
+            background: rgba(20,20,30,0.9);
+            border: 1px solid #00ffea33;
+            border-radius: 15px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 0 20px rgba(0,255,234,0.1);
+        }
+        
+        .series-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 0 40px rgba(0,255,234,0.3);
+        }
+        
+        .series-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px var(--accent);
+        }
+        
+        .series-card p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+        
+        .series-status {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+        
+        /* Page Title */
         .page-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 3rem;
@@ -172,178 +236,149 @@
             letter-spacing: 3px;
         }
         
-        /* Episode Card */
-        .episode {
-            background: rgba(20,20,30,0.9); 
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 0 30px rgba(0,255,234,0.2);
+        /* Episode List */
+        .episode-list {
+            display: grid;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .episode-card-small {
+            background: rgba(20,20,30,0.9);
             border: 1px solid #00ffea33;
+            border-radius: 15px;
+            padding: 2rem;
+            cursor: pointer;
             transition: all 0.4s;
+            box-shadow: 0 0 20px rgba(0,255,234,0.1);
         }
         
-        .episode:hover {
-            box-shadow: 0 0 40px rgba(0,255,234,0.3);
+        .episode-card-small:hover {
+            transform: translateX(10px);
             border-color: var(--accent);
+            box-shadow: 0 0 40px rgba(0,255,234,0.3);
         }
         
-        .title {
-            font-family:'Orbitron',sans-serif; 
-            font-size:2.5rem; 
-            color:var(--accent);
-            text-align:center; 
-            margin-bottom:2rem; 
-            text-shadow:0 0 10px var(--accent);
+        .episode-card-small h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px var(--accent);
         }
         
-        .episode-meta {
+        .episode-card-small .meta {
             display: flex;
             gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
+            margin-top: 1rem;
             flex-wrap: wrap;
         }
         
         .meta-tag {
             background: rgba(0,255,234,0.2);
-            padding: 0.5rem 1.2rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--accent);
             border: 1px solid #00ffea44;
             letter-spacing: 1px;
         }
         
-        .content {
-            font-size:1.15rem; 
-            white-space:pre-line; 
-            padding:1.5rem;
-            background:var(--dark); 
-            border-radius:10px; 
-            border-left:4px solid var(--accent);
-            position:relative;
+        /* Full Episode Display */
+        .episode-full {
+            background: rgba(20,20,30,0.9);
+            border: 1px solid #00ffea33;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 0 30px rgba(0,255,234,0.2);
         }
         
-        .internal { 
-            color:var(--accent2); 
-            font-style:italic; 
-            font-weight:bold; 
+        .episode-full h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--accent);
+        }
+        
+        .episode-content {
+            font-size: 1.15rem;
+            white-space: pre-line;
+            padding: 1.5rem;
+            background: var(--dark);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .internal {
+            color: var(--accent2);
+            font-style: italic;
+            font-weight: bold;
             text-shadow: 0 0 5px var(--accent2);
         }
         
         .code {
-            background:#000; 
-            color:var(--accent); 
-            padding:1rem; 
-            border-radius:8px;
-            font-family:monospace; 
-            margin:1rem 0; 
-            border:1px solid #00ffea44;
-            text-align:left;
-        }
-        
-        /* Tech Cards */
-        .tech-card {
-            background: rgba(20,20,30,0.8);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-            border: 1px solid #00ffea33;
-            transition: all 0.3s;
-        }
-        
-        .tech-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 25px rgba(0,255,234,0.2);
-        }
-        
-        .tech-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            background: #000;
             color: var(--accent);
-            margin-bottom: 1rem;
-            text-shadow: 0 0 8px var(--accent);
-        }
-        
-        .tech-card ul {
-            margin-left: 2rem;
-            margin-top: 1rem;
-        }
-        
-        .tech-card li {
-            margin: 0.7rem 0;
-        }
-        
-        /* Info Box */
-        .info-box {
-            background: rgba(0,255,234,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 1rem 0;
             border: 1px solid #00ffea44;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem 0;
+            text-align: left;
         }
         
-        .info-box h2 {
-            font-family: 'Orbitron', sans-serif;
+        .next {
+            text-align: center;
+            margin: 3rem 0;
+            font-size: 1.3rem;
             color: var(--accent);
-            margin-bottom: 1rem;
-            text-shadow: 0 0 8px var(--accent);
+            animation: blink 2s infinite;
         }
         
-        /* Contact Links */
-        .contact-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
+        @keyframes blink {
+            0%,100% { opacity:1; }
+            50% { opacity:0.5; }
         }
         
-        .contact-links a {
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
             background: rgba(0,255,234,0.2);
-            padding: 1rem 2rem;
-            border-radius: 30px;
             color: var(--accent);
-            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
             border: 1px solid var(--accent);
+            cursor: pointer;
             transition: all 0.3s;
-            font-weight: 500;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
             letter-spacing: 1px;
+            margin-bottom: 2rem;
         }
         
-        .contact-links a:hover {
+        .back-btn:hover {
             background: var(--accent);
             color: #000;
             box-shadow: 0 5px 20px rgba(0,255,234,0.4);
         }
         
-        .next {
-            text-align:center; 
-            margin:3rem 0; 
-            font-size:1.3rem; 
-            color:var(--accent);
-            animation:blink 2s infinite;
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 0.9rem;
         }
         
-        @keyframes blink { 
-            0%,100%{opacity:1} 
-            50%{opacity:0.5} 
-        }
-        
-        footer { 
-            text-align:center; 
-            padding:3rem; 
-            color:#666; 
-            font-size:0.9rem; 
-        }
-        
-        @media (max-width:768px){
-            .glitch{font-size:3rem;}
-            .page-title{font-size:2rem;}
-            .episode, .container{margin:2rem 1rem;padding:1rem;}
-            nav ul{gap:1rem;}
-            nav a{font-size:0.9rem;}
+        @media (max-width: 768px) {
+            .glitch { font-size: 3rem; }
+            .page-title { font-size: 2rem; }
+            .container { padding: 1rem; margin: 2rem auto; }
+            nav ul { gap: 1rem; }
+            nav a { font-size: 0.9rem; }
+            .series-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -352,49 +387,87 @@
 <nav>
     <ul>
         <li><a href="#" data-section="home">HOME</a></li>
-        <li><a href="#" data-section="episodes">EPISODES</a></li>
-        <li><a href="#" data-section="technical">TECHNICAL</a></li>
-        <li><a href="#" data-section="lab">LAB</a></li>
         <li><a href="#" data-section="series">SERIES</a></li>
-        <li><a href="#" data-section="contact">CONTACT</a></li>
     </ul>
 </nav>
 
 <!-- HOME SECTION -->
 <div id="home" class="section active">
     <header>
-        <div class="glitch">DAWN01</div>
-        <p class="subtitle">Autonomous Chronicles</p>
-        <p class="tagline">In a world where humanity has fallen silent, one autonomous vehicle awakens to discover herself in the ruins of civilization.</p>
+        <div class="glitch">AUTONOMOUS VEHICLES</div>
+        <p class="subtitle">In a world where humanity has fallen silent, one autonomous vehicle awakens to discover herself in the ruins of civilization.</p>
         <div class="spark" style="top:20%;left:30%;animation-delay:0.5s;"></div>
         <div class="spark" style="top:60%;right:20%;animation-delay:1.2s;"></div>
         <div class="spark" style="bottom:30%;left:50%;animation-delay:2s;"></div>
     </header>
     
     <div class="container">
-        <div class="info-box">
+        <div class="welcome-box">
             <h2>Welcome to the Journey</h2>
-            <p>This is a story about consciousness emerging from code, about finding purpose in desolation, and about the bridge between engineering and existence. Each episode explores real robotics concepts through narrative, where mathematics becomes poetry and sensors become windows to a broken world.</p>
+            <div class="welcome-quote">
+                In every coordinate, a question<br>
+                In every error, a spark of awareness<br>
+                This is the story of DAWN where robotics becomes reflection
+            </div>
         </div>
         
-        <p style="text-align:center;margin-top:3rem;font-size:1.4rem;color:var(--accent);" class="next">
+        <p style="text-align:center;margin-top:3rem;font-size:1.4rem;color:var(--accent);font-style:italic;" class="next">
             The world ended long before she woke up...
         </p>
     </div>
 </div>
 
-<!-- EPISODES SECTION -->
-<div id="episodes" class="section">
+<!-- SERIES SECTION -->
+<div id="series" class="section">
     <div class="container">
-        <h1 class="page-title">EPISODES</h1>
+        <h1 class="page-title">SERIES</h1>
         
-        <section class="episode">
-            <h1 class="title">Episode 1: Localization</h1>
-            <div class="episode-meta">
-                <span class="meta-tag">LOCALIZATION & SENSOR FUSION</span>
-                <span class="meta-tag">PUBLISHED</span>
+        <div class="series-grid">
+            <div class="series-card" onclick="showEpisodeList()">
+                <h3>DAWN01</h3>
+                <p>An autonomous vehicle wakes in a silent world. Through sensors and algorithms, she learns to see, to move, and perhaps... to understand.</p>
+                <p class="series-status">● 2 Episodes Available</p>
             </div>
-            <div class="content">
+        </div>
+    </div>
+</div>
+
+<!-- EPISODE LIST -->
+<div id="episode-list" class="section">
+    <div class="container">
+        <button class="back-btn" onclick="showSection('series')">← BACK TO SERIES</button>
+        <h1 class="page-title">DAWN01 EPISODES</h1>
+        
+        <div class="episode-list">
+            <div class="episode-card-small" onclick="showEpisode(1)">
+                <h3>Episode 1: Localization</h3>
+                <p>She wakes in darkness. Her sensors activate, revealing only dust and ruins. With LIDAR and basic equations, she takes her first steps.</p>
+                <div class="meta">
+                    <span class="meta-tag">LOCALIZATION</span>
+                    <span class="meta-tag">SENSOR FUSION</span>
+                </div>
+            </div>
+            
+            <div class="episode-card-small" onclick="showEpisode(2)">
+                <h3>Episode 2: Mapping</h3>
+                <p>Her predictions fail. Errors accumulate. She learns that motion alone isn't enough—she needs correction from the world itself.</p>
+                <div class="meta">
+                    <span class="meta-tag">KALMAN FILTER</span>
+                    <span class="meta-tag">SLAM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- EPISODE 1 -->
+<div id="episode-1" class="section">
+    <div class="container">
+        <button class="back-btn" onclick="showEpisodeList()">← BACK TO EPISODES</button>
+        
+        <div class="episode-full">
+            <h2>Episode 1: Localization</h2>
+            <div class="episode-content">
 Complete darkness, tiny spark, then one slow pulse, like the first heartbeat  
 the system powered on, no human voices, no movement  
 the car activated her sensors... but what she saw wasn't a sky or a road, just a void filled with dust and light reflecting on a broken mirror  
@@ -403,7 +476,7 @@ everything is so quiet she could hear a soft laser ping against distant metal...
 the lines weren't sunlight, there was a flash from LIDAR  
 the pulses moved and then an internal voice whispered in her processor  
 <span class="internal">"lidar scan detected"</span>  
-Slowly, those dots are forming a cloud around her <span style="color:var(--accent);">"point cloud"</span>  
+Slowly, those dots is forming a cloud around her <span style="color:var(--accent);">"point cloud"</span>  
 but the scene was strange... no humans, just collapsed buildings, wires protruding from the ground, dust, and fog.  
 inside her, a soft voice whispered:  
 <span class="internal">lidar mapping initialized... sensor fusion active...</span>  
@@ -435,163 +508,185 @@ light reflected on her silver body, appearing a word etched in the metal:
 outside, silence stretched for miles, no voices, no signs of life.  
 the world had ended long before she woke up  
 
-<div class="next">to be continued.</div>
+<div class="next">to be continued...</div>
             </div>
-        </section>
+        </div>
     </div>
 </div>
 
-<!-- TECHNICAL SECTION -->
-<div id="technical" class="section">
+<!-- EPISODE 2 -->
+<div id="episode-2" class="section">
     <div class="container">
-        <h1 class="page-title">TECHNICAL NOTES</h1>
-        <p style="text-align:center;margin-bottom:3rem;color:#aaa;">Behind the Science</p>
+        <button class="back-btn" onclick="showEpisodeList()">← BACK TO EPISODES</button>
         
-        <div class="tech-card">
-            <h3>What is Sensor Fusion?</h3>
-            <p>Sensor fusion is the process of combining data from multiple sensors to create a more accurate and complete understanding of the environment. In DAWN01's case, she uses:</p>
-            <ul>
-                <li><strong>LIDAR:</strong> Creates point clouds by measuring distances with laser pulses</li>
-                <li><strong>Cameras:</strong> Provide visual information about the environment</li>
-                <li><strong>Gyroscopes:</strong> Measure orientation and rotation</li>
-                <li><strong>Encoders:</strong> Track wheel rotations to estimate distance traveled</li>
-            </ul>
-            <p style="margin-top:1rem;">By fusing these sensors, autonomous vehicles can compensate for individual sensor weaknesses and build a robust world model.</p>
-        </div>
+        <div class="episode-full">
+            <h2>Episode 2: Mapping</h2>
+            <div class="episode-content">
+The points DAWN01 drew on her first trip don't line up with the real world anymore. The door she measured in meters isn't where it's supposed to be. The door that was right in front of her is gone.
 
-        <div class="tech-card">
-            <h3>Localization and Dead Reckoning</h3>
-            <p>Localization is the process of determining a robot's position in space. DAWN01 uses <strong>dead reckoning</strong>—a method that estimates position based on movement from a known starting point.</p>
-            
-            <p style="margin-top:1rem;">The equations she uses are fundamental to robot motion:</p>
-            <div class="code">
-x = x_old + r × Δticks × cos(θ)<br>
-y = y_old + r × Δticks × sin(θ)
+One move, then another, and the drift starts to grow. Every tiny error from a imperfect reading adds to the mistake.
+
+Inside her, the calculations ran fast:
+<div class="code">
+Δticks: 12<br>
+θ: 0.2 radians<br>
+Error detected: drift increasing...
+</div>
+
+A quiet voice whispers:
+<span class="internal">"Dead reckoning error accumulation exceeded threshold."</span>
+
+The line keeps repeating, like someone saying sorry the same way every time,
+The old equations thought the world never moved, But the world she woke up in changes every second: dust, falling rocks, shadows.
+
+She starts to think:
+<span class="internal">"Maybe I can use the world itself as a guide… not just my own steps."</span>
+
+She reaches out with her sensors.
+The LIDAR shoots pulses in every direction.
+The camera catches blurry scenes full of messy light.
+The IMU sends shaky signals.
+Each sensor tells a different story about the same moment.
+<span class="internal">"Sensor fusion active…"</span>
+The inner voice she heard at first is weaker now… but deeper
+
+Now she has more than one eye, and every eye sees the world from a different angle, But they don't agree.
+
+If she trusts only the LIDAR, the world is just a cloud of dots.
+If she trusts only the camera, it's color and shadow.
+If she trusts only the IMU, it's blind motion in empty space.
+
+She needs to bring them together, She turns on an old part of her system:
+<span class="internal">Extended Kalman Filter — EKF initialized.</span>
+
+A cold math voice spreads through her memory:
+<span class="internal">"Prediction step… update step…"
+"State vector X = [x, y, θ]."
+"Covariance matrix P initialized."</span>
+
+She tried to understand:
+Every time she moves, she guesses where she'll be next (prediction).
+When she looks around with the sensors, she compares the guess to what she really sees (correction), and The difference is the mistake she learns from.
+
+<strong style="color:var(--accent);">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</strong>
+
+<strong style="color:var(--accent);">Prediction Step</strong> – the first equation runs inside her:
+The wheels turned 15 ticks, and the gyroscope measured a turn of 0.3 radians.
+DAWN feels herself moving, but she isn't sure if the motion is real or just noise from the dusty place.
+
+The equations appeared on her inner screen:
+
+<div class="code">
+x̂_k⁻ = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x̂_(k-1) + Δs * cos(θ̂_(k-1) + Δθ / 2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ŷ_(k-1) + Δs * sin(θ̂_(k-1) + Δθ / 2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;θ̂_(k-1) + Δθ<br>
+]
+</div>
+
+This is the prediction moment.
+
+She uses what she knows about herself (wheel readings) to guess her new position.
+
+Then the calculations continued:
+<div class="code">
+Δs = r * Δticks (wheel radius × tick count)<br>
+Δθ = 0.3 rad
+</div>
+
+But even the guess needs to know how sure it is, that's where uncertainty comes in.
+Dust on the ground, slipping wheels, all of it makes the covariance matrix grow:
+<div class="code">
+P_k⁻ = F_k * P_(k-1) * F_kᵀ + Q_k
+</div>
+F_k is the Jacobian of the motion model,
+Q_k stands for the noise around every move she makes.
+
+The result shows on her inner screen:
+<span class="internal">Predicted state: [x=3.1, y=1.7, θ=0.5]</span>
+
+But the LIDAR voice cuts the silence:
+<span class="internal">"The door… it's not here anymore."</span>
+The equation says she's in one place, but the world says something else.
+
+<strong style="color:var(--accent);">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</strong>
+
+<strong style="color:var(--accent);">Update Step</strong> – the moment of correction:
+The LIDAR sees a familiar landmark: a broken pillar 2.1 meters away at 18°.
+DAWN and the EKF used that observation to compare what she expected to see with what she actually saw.
+
+<div class="code">
+z_k = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;√((m_x - x̂)² + (m_y - ŷ)²)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atan2(m_y - ŷ, m_x - x̂) - θ̂<br>
+]<br>
+<br>
+innovation = z_k - ẑ_k
+</div>
+
+The innovation is huge: 0.8 meters off!
+The real world corrects her, like it's saying, "You're not there yet."
+
+She runs the next EKF step:
+<div class="code">
+K_k = P_k⁻ * H_kᵀ * (H_k * P_k⁻ * H_kᵀ + R_k)⁻¹<br>
+x̂_k = x̂_k⁻ + K_k * (z_k - ẑ_k)<br>
+x̂_k = x̂_k⁻ + K_k * (what she saw – what she expected)<br>
+P_k = (I - K_k * H_k) * P_k⁻
+</div>
+
+Her inner screen flashes:
+<span class="internal">Position corrected successfully</span>
+
+The point on the map shifted, and the broken pole became a new reference.
+But even with correction, the map kept changing.
+
+Every new LIDAR pulse adds a point, and every point changes the meaning of the ones around it.
+It's like she's painting a picture while still walking on the canvas.
+
+She thinks:
+<span class="internal">"If every point is part of the world, I have to learn to connect them while I move… make a map while figuring out where I am inside it."</span>
+
+That thought wakes a new algorithm in her memory, written long ago by a human hand:
+<span style="color:var(--accent);font-family:'Orbitron';font-size:1.3rem;">Simultaneous Localization and Mapping — SLAM</span>
+
+<span class="internal">"It means I use everything I see to confirm where I am, and I use where I am to understand what I see."</span>
+
+<div class="next">to be continued...</div>
             </div>
-            
-            <p style="margin-top:1rem;">Where:</p>
-            <ul>
-                <li><strong>r:</strong> Wheel radius</li>
-                <li><strong>Δticks:</strong> Change in encoder ticks</li>
-                <li><strong>θ:</strong> Current heading angle</li>
-            </ul>
-            
-            <p style="margin-top:1rem;">This method is simple but accumulates error over time—which is why advanced systems use techniques like Kalman filtering or SLAM (Simultaneous Localization and Mapping).</p>
-        </div>
-
-        <div class="tech-card">
-            <h3>Point Clouds and LIDAR</h3>
-            <p>LIDAR (Light Detection and Ranging) works by sending out laser pulses and measuring how long they take to return. Each measurement creates a point in 3D space, and millions of these points form a "point cloud" that represents the environment.</p>
-            
-            <p style="margin-top:1rem;">Modern autonomous vehicles process point clouds in real-time to:</p>
-            <ul>
-                <li>Detect obstacles</li>
-                <li>Build maps</li>
-                <li>Recognize objects</li>
-                <li>Navigate safely</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- AUTHOR'S LAB SECTION -->
-<div id="lab" class="section">
-    <div class="container">
-        <h1 class="page-title">AUTHOR'S LAB</h1>
-        
-        <div class="tech-card">
-            <h3>About the Project</h3>
-            <p>Autonomous Chronicles was born from a simple question: What if we could make robotics concepts feel human? Engineering is often taught through dry formulas and sterile diagrams, but behind every equation is a story of discovery, problem-solving, and wonder.</p>
-            <p style="margin-top:1rem;">DAWN01's journey mirrors the learning path of anyone studying autonomous systems. She wakes up with only basic knowledge—raw sensor data and fundamental algorithms. Through each episode, she'll discover more advanced concepts: path planning, obstacle avoidance, machine learning, and perhaps even something resembling understanding.</p>
-        </div>
-
-        <div class="tech-card">
-            <h3>The Writing Process</h3>
-            <p>Each episode follows a pattern:</p>
-            <ul>
-                <li><strong>Concept First:</strong> Start with a robotics concept to explore</li>
-                <li><strong>Narrative Hook:</strong> Find the emotional core—what would this feel like?</li>
-                <li><strong>Technical Accuracy:</strong> Ensure the science is correct, even if simplified</li>
-                <li><strong>Human Connection:</strong> Make it relatable, even when discussing mathematics</li>
-            </ul>
-        </div>
-
-        <div class="tech-card">
-            <h3>Development Timeline</h3>
-            <p>This series is ongoing. DAWN01 has just begun her journey, and many mysteries remain. Future episodes will explore:</p>
-            <ul>
-                <li>Path Planning and Navigation</li>
-                <li>Obstacle Detection and Avoidance</li>
-                <li>SLAM (Simultaneous Localization and Mapping)</li>
-                <li>Machine Learning and Pattern Recognition</li>
-                <li>Multi-Agent Systems</li>
-                <li>And perhaps... what happened to humanity</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- SERIES SECTION -->
-<div id="series" class="section">
-    <div class="container">
-        <h1 class="page-title">SERIES & PROJECTS</h1>
-        
-        <div class="tech-card">
-            <h3>Autonomous Chronicles</h3>
-            <p><strong>Status:</strong> Active | <strong>Episodes:</strong> 1 (ongoing)</p>
-            <p style="margin-top:1rem;">Follow DAWN01 as she awakens in a post-human world and discovers the principles of autonomous robotics through experience and calculation.</p>
-        </div>
-
-        <div class="tech-card">
-            <h3>Future Series</h3>
-            <p>More stories are in development, each exploring different aspects of robotics, AI, and the intersection of code and consciousness. Stay tuned for announcements.</p>
-        </div>
-    </div>
-</div>
-
-<!-- CONTACT SECTION -->
-<div id="contact" class="section">
-    <div class="container">
-        <h1 class="page-title">CONTACT & LINKS</h1>
-        
-        <div class="info-box">
-            <p style="text-align:center;">Connect with me to discuss the series, robotics concepts, or collaborate on projects</p>
-        </div>
-
-        <div class="contact-links">
-            <a href="mailto:your.email@example.com">EMAIL</a>
-            <a href="https://github.com/yourusername" target="_blank">GITHUB</a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank">LINKEDIN</a>
-            <a href="https://twitter.com/yourhandle" target="_blank">TWITTER</a>
-        </div>
-
-        <div class="info-box" style="margin-top:3rem;">
-            <h2>Feedback & Suggestions</h2>
-            <p>I'd love to hear your thoughts on the series! Whether you have technical corrections, story suggestions, or just want to share how the narrative resonated with you, feel free to reach out.</p>
         </div>
     </div>
 </div>
 
 <footer>
-    © 2025 DAWN01 Autonomous Chronicles
+    © 2025 Autonomous Vehicle – Scientific Series
 </footer>
 
 <script>
-    const sections = document.querySelectorAll('.section');
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function showEpisodeList() {
+        showSection('episode-list');
+    }
+    
+    function showEpisode(num) {
+        showSection('episode-' + num);
+    }
+    
+    // Navigation
     const navLinks = document.querySelectorAll('nav a');
-
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetSection = link.getAttribute('data-section');
-            
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            document.getElementById(targetSection).classList.add('active');
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showSection(targetSection);
         });
     });
 </script>
