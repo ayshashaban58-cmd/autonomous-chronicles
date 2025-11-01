@@ -450,7 +450,7 @@
             
             <div class="episode-card-small" onclick="showEpisode(2)">
                 <h3>Episode 2: Mapping</h3>
-                <p>Her predictions fail. Errors accumulate. She learns that motion alone isn't enough—she needs correction from the world itself.</p>
+                <p>Her predictions fail. Errors accumulate. She learns that motion alone isn't enough she needs correction from the world itself.</p>
                 <div class="meta">
                     <span class="meta-tag">KALMAN FILTER</span>
                     <span class="meta-tag">SLAM</span>
@@ -557,7 +557,7 @@ If she trusts only the camera, it's color and shadow.
 If she trusts only the IMU, it's blind motion in empty space.
 
 She needs to bring them together, She turns on an old part of her system:
-<span class="internal">Extended Kalman Filter — EKF initialized.</span>
+<span class="internal">Extended Kalman Filter _ EKF initialized.</span>
 
 A cold math voice spreads through her memory:
 <span class="internal">"Prediction step… update step…"
@@ -570,17 +570,17 @@ When she looks around with the sensors, she compares the guess to what she reall
 
 <strong style="color:var(--accent);">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</strong>
 
-<strong style="color:var(--accent);">Prediction Step</strong> – the first equation runs inside her:
+<strong style="color:var(--accent);">Prediction Step</strong>  the first equation runs inside her:
 The wheels turned 15 ticks, and the gyroscope measured a turn of 0.3 radians.
 DAWN feels herself moving, but she isn't sure if the motion is real or just noise from the dusty place.
 
 The equations appeared on her inner screen:
 
 <div class="code">
-x̂_k⁻ = [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x̂_(k-1) + Δs * cos(θ̂_(k-1) + Δθ / 2)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ŷ_(k-1) + Δs * sin(θ̂_(k-1) + Δθ / 2)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;θ̂_(k-1) + Δθ<br>
+x̂ₖ⁻ = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x̂₍ₖ₋₁₎ + Δs * cos(θ̂₍ₖ₋₁₎ + Δθ / 2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ŷ₍ₖ₋₁₎ + Δs * sin(θ̂₍ₖ₋₁₎ + Δθ / 2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;θ̂₍ₖ₋₁₎ + Δθ<br>
 ]
 </div>
 
@@ -597,7 +597,7 @@ Then the calculations continued:
 But even the guess needs to know how sure it is, that's where uncertainty comes in.
 Dust on the ground, slipping wheels, all of it makes the covariance matrix grow:
 <div class="code">
-P_k⁻ = F_k * P_(k-1) * F_kᵀ + Q_k
+Pₖ⁻ = Fₖ * P₍ₖ₋₁₎ * Fₖᵀ + Qₖ
 </div>
 F_k is the Jacobian of the motion model,
 Q_k stands for the noise around every move she makes.
@@ -611,17 +611,17 @@ The equation says she's in one place, but the world says something else.
 
 <strong style="color:var(--accent);">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</strong>
 
-<strong style="color:var(--accent);">Update Step</strong> – the moment of correction:
+<strong style="color:var(--accent);">Update Step</strong>  the moment of correction:
 The LIDAR sees a familiar landmark: a broken pillar 2.1 meters away at 18°.
 DAWN and the EKF used that observation to compare what she expected to see with what she actually saw.
 
 <div class="code">
-z_k = [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;√((m_x - x̂)² + (m_y - ŷ)²)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atan2(m_y - ŷ, m_x - x̂) - θ̂<br>
+zₖ = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;√((mₓ - x̂)² + (mᵧ - ŷ)²)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atan2(mᵧ - ŷ, mₓ - x̂) - θ̂<br>
 ]<br>
 <br>
-innovation = z_k - ẑ_k
+innovation = zₖ - ẑₖ
 </div>
 
 The innovation is huge: 0.8 meters off!
@@ -648,7 +648,7 @@ She thinks:
 <span class="internal">"If every point is part of the world, I have to learn to connect them while I move… make a map while figuring out where I am inside it."</span>
 
 That thought wakes a new algorithm in her memory, written long ago by a human hand:
-<span style="color:var(--accent);font-family:'Orbitron';font-size:1.3rem;">Simultaneous Localization and Mapping — SLAM</span>
+<span style="color:var(--accent);font-family:'Orbitron';font-size:1.3rem;">Simultaneous Localization and Mapping "SLAM"  </span>
 
 <span class="internal">"It means I use everything I see to confirm where I am, and I use where I am to understand what I see."</span>
 
