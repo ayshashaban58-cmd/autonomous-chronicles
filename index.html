@@ -103,6 +103,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 0 1rem;
         }
         
         .glitch {
@@ -113,6 +114,7 @@
             text-shadow: 0 0 10px var(--accent);
             animation: glitch 2s infinite;
             letter-spacing: 5px;
+            line-height: 1.2;
         }
         
         @keyframes glitch {
@@ -379,14 +381,14 @@
         
         @media (max-width: 768px) {
             .glitch { 
-                font-size: 2rem; 
+                font-size: 3rem; 
                 letter-spacing: 2px;
-                word-break: keep-all;
-                white-space: nowrap;
+                word-break: normal;
+                white-space: normal;
             }
             .page-title { font-size: 2rem; }
             .container { 
-                padding: 0.5rem; 
+                padding: 1rem; 
                 margin: 1rem auto;
                 max-width: 100%;
             }
@@ -396,7 +398,7 @@
             }
             .episode-content {
                 font-size: 1rem;
-                padding: 0.8rem;
+                padding: 1rem;
             }
             .episode-full h2 {
                 font-size: 1.8rem;
@@ -408,8 +410,7 @@
         
         @media (max-width: 480px) {
             .glitch { 
-                font-size: 1.5rem;
-                letter-spacing: 1px;
+                font-size: 2.5rem;
             }
             .episode-content {
                 font-size: 0.95rem;
@@ -426,10 +427,9 @@
     </ul>
 </nav>
 
-<!-- HOME SECTION -->
 <div id="home" class="section active">
     <header>
-        <div class="glitch">AUTONOMOUS VEHICLES</div>
+        <div class="glitch">AUTONOMOUS<br>VEHICLES</div>
         <p class="subtitle">In a world where humanity has fallen silent, one autonomous vehicle awakens to discover herself in the ruins of civilization.</p>
         <div class="spark" style="top:20%;left:30%;animation-delay:0.5s;"></div>
         <div class="spark" style="top:60%;right:20%;animation-delay:1.2s;"></div>
@@ -452,7 +452,6 @@
     </div>
 </div>
 
-<!-- SERIES SECTION -->
 <div id="series" class="section">
     <div class="container">
         <h1 class="page-title">SERIES</h1>
@@ -461,13 +460,12 @@
             <div class="series-card" onclick="showEpisodeList()">
                 <h3>DAWN01</h3>
                 <p>An autonomous vehicle wakes in a silent world. Through sensors and algorithms, she learns to see, to move, and perhaps... to understand.</p>
-                <p class="series-status">● 2 Episodes Available</p>
+                <p class="series-status">● 3 Episodes Available</p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- EPISODE LIST -->
 <div id="episode-list" class="section">
     <div class="container">
         <button class="back-btn" onclick="showSection('series')">← BACK TO SERIES</button>
@@ -491,11 +489,19 @@
                     <span class="meta-tag">SLAM</span>
                 </div>
             </div>
+
+            <div class="episode-card-small" onclick="showEpisode(3)">
+                <h3>Episode 3: Graph SLAM & Loop Closure</h3>
+                <p>The map distorts and lines bend. DAWN01 returns to the start, triggering a loop closure that corrects the past and reveals the truth.</p>
+                <div class="meta">
+                    <span class="meta-tag">GRAPH SLAM</span>
+                    <span class="meta-tag">LOOP CLOSURE</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- EPISODE 1 -->
 <div id="episode-1" class="section">
     <div class="container">
         <button class="back-btn" onclick="showEpisodeList()">← BACK TO EPISODES</button>
@@ -521,7 +527,7 @@ she could see all this, but she didn't know her place in it
 <span class="internal">"if every point has a place, why don't i?"</span>  
 a half-forgotten equation flickered in her memory:  
 <div class="code">
-x = x_old + r × Δticks × cos(θ)<br>
+x = x_old + r × Δticks × cos(θ)
 y = y_old + r × Δticks × sin(θ)
 </div>
 she thought <span class="internal">"if i move a little, i can compare what i saw before and after the motion, then maybe i can estimate how my position changed and find where i really am"</span>  
@@ -549,7 +555,6 @@ the world had ended long before she woke up
     </div>
 </div>
 
-<!-- EPISODE 2 -->
 <div id="episode-2" class="section">
     <div class="container">
         <button class="back-btn" onclick="showEpisodeList()">← BACK TO EPISODES</button>
@@ -563,8 +568,8 @@ One move, then another, and the drift starts to grow. Every tiny error from a im
 
 Inside her, the calculations ran fast:
 <div class="code">
-Δticks: 12<br>
-θ: 0.2 radians<br>
+Δticks: 12
+θ: 0.2 radians
 Error detected: drift increasing...
 </div>
 
@@ -612,10 +617,10 @@ DAWN feels herself moving, but she isn't sure if the motion is real or just nois
 The equations appeared on her inner screen:
 
 <div class="code">
-x̂ₖ⁻ = [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x̂₍ₖ₋₁₎ + Δs * cos(θ̂₍ₖ₋₁₎ + Δθ / 2)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ŷ₍ₖ₋₁₎ + Δs * sin(θ̂₍ₖ₋₁₎ + Δθ / 2)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;θ̂₍ₖ₋₁₎ + Δθ<br>
+x̂ₖ⁻ = [
+        x̂₍ₖ₋₁₎ + Δs * cos(θ̂₍ₖ₋₁₎ + Δθ / 2)
+        ŷ₍ₖ₋₁₎ + Δs * sin(θ̂₍ₖ₋₁₎ + Δθ / 2)
+        θ̂₍ₖ₋₁₎ + Δθ
 ]
 </div>
 
@@ -625,7 +630,7 @@ She uses what she knows about herself (wheel readings) to guess her new position
 
 Then the calculations continued:
 <div class="code">
-Δs = r * Δticks (wheel radius × tick count)<br>
+Δs = r * Δticks (wheel radius × tick count)
 Δθ = 0.3 rad
 </div>
 
@@ -651,11 +656,11 @@ The LIDAR sees a familiar landmark: a broken pillar 2.1 meters away at 18°.
 DAWN and the EKF used that observation to compare what she expected to see with what she actually saw.
 
 <div class="code">
-zₖ = [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;√((mₓ - x̂)² + (mᵧ - ŷ)²)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atan2(mᵧ - ŷ, mₓ - x̂) - θ̂<br>
-]<br>
-<br>
+zₖ = [
+      √((mₓ - x̂)² + (mᵧ - ŷ)²)
+      atan2(mᵧ - ŷ, mₓ - x̂) - θ̂
+]
+
 innovation = zₖ - ẑₖ
 </div>
 
@@ -664,9 +669,9 @@ The real world corrects her, like it's saying, "You're not there yet."
 
 She runs the next EKF step:
 <div class="code">
-K_k = P_k⁻ * H_kᵀ * (H_k * P_k⁻ * H_kᵀ + R_k)⁻¹<br>
-x̂_k = x̂_k⁻ + K_k * (z_k - ẑ_k)<br>
-x̂_k = x̂_k⁻ + K_k * (what she saw – what she expected)<br>
+K_k = P_k⁻ * H_kᵀ * (H_k * P_k⁻ * H_kᵀ + R_k)⁻¹
+x̂_k = x̂_k⁻ + K_k * (z_k - ẑ_k)
+x̂_k = x̂_k⁻ + K_k * (what she saw – what she expected)
 P_k = (I - K_k * H_k) * P_k⁻
 </div>
 
@@ -688,6 +693,122 @@ That thought wakes a new algorithm in her memory, written long ago by a human ha
 <span class="internal">"It means I use everything I see to confirm where I am, and I use where I am to understand what I see."</span>
 
 <div class="next">to be continued...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="episode-3" class="section">
+    <div class="container">
+        <button class="back-btn" onclick="showEpisodeList()">← BACK TO EPISODES</button>
+        
+        <div class="episode-full">
+            <h2>Episode 3: Graph SLAM & Loop Closure</h2>
+            <div class="episode-content">
+With every step DAWN01 took, the map she had been drawing began to distort.
+Not a little distortion… no, Lines were bending, angles were shifting, distances that had been fixed started to drift apart.
+
+A corridor that had been perfectly straight now curved like a snake.
+DAWN01 returned to a point she was sure about, but the same metal door she had measured perfectly… was gone.
+
+A red warning flashed inside her display for the first time:
+<span class="internal">“Map distortion detected. A map is not a picture… a map is an equation.”</span>
+
+The inner voice that had calmed her in the previous episodes returned, but this time it sounded afraid:
+<span class="internal">“Accumulated drift critical… EKF can no longer compensate… switching to full graph optimization.”</span>
+
+DAWN01 froze, She felt lost… inside her own map.
+“Where am I, exactly?”
+
+Suddenly, her LIDAR hit a broken mirror far away, that is was the same mirror she had woken up in front of in episode one.
+The point cloud matched by 98.7%.
+
+DAWN01 inner voice:
+<span class="internal">“I… came back?”</span>
+
+in a blue internal screen, words glowing like the voice of an old engineer speaking from the past:
+<span class="internal">“Whenever you return to the same place, a loop closure happens.
+And it fixes every error you’ve accumulated since day one.
+Not step by step…
+It corrects the entire map at once.”</span>
+
+The inner voice continued calmly:
+<span class="internal">“Graph SLAM activated… building pose graph…”</span>
+
+In Graph SLAM, the robot builds a graph:
+Every pose becomes a node: <span class="code" style="padding:0.2rem; display:inline;">xᵢ = [x, y, θ]</span>
+Every sensor observation creates an edge connecting two nodes.
+
+Inside her mind, every step she had taken became a tiny glowing circle (nodes).
+Every odometry reading became an edge (an arrow between nodes).
+
+Then… a new edge appeared.
+A thick golden arrow connecting her latest pose to Pose 1.
+The loop was closed.
+
+Her display printed:
+<div class="code">
+Pose graph: 18,473 nodes
+Odometry edges: 18,472
+Loop closure edge detected → node 1 ↔ node 18,473
+</div>
+
+A corner of her memory lit up with old equations she was trying to remember:
+<span class="internal">“The measurement zᵢⱼ is what I actually measured between pose i and pose j.
+When I came back to the same point, I measured that the distance should be almost zero.
+But according to odometry, I saw myself 9.8 meters away!”</span>
+
+She remembered the equation:
+<div class="code">
+eᵢⱼ = zᵢⱼ ⊖ (xⱼ ⊖ xᵢ)
+</div>
+Meaning:
+error = real measurement – expected measurement
+
+She began correcting the error across the entire map.
+<div class="code">
+χ² = ∑ eᵢⱼᵀ Ωᵢⱼ eᵢⱼ
+</div>
+Every edge pulled the map tight to reduce χ²,
+and the loop closure edge pulled the entire map back into shape.
+
+The Jacobians popped up clearly:
+<div class="code">
+∂e/∂xᵢ = [-Rᵢ  0]
+∂e/∂xⱼ = [ Rᵢ  0]
+</div>
+
+Finally, the system announced:
+<div class="code">
+Δx = - (Jᵀ Ω J)^{-1} Jᵀ Ω e
+</div>
+Meaning:
+We will compute the correction for every pose
+and distribute it across all 18,473 nodes… not just the last one.
+
+The whole map acts as one body.
+Every point shifted slightly.
+Every line straightened.
+Every angle clicked back into place.
+
+Her display glowed green:
+<div class="code" style="color:var(--accent);">
+Graph optimization converged after 14 iterations
+χ² reduced from 21,847 → 38.7
+Maximum pose correction: 9.81 meters
+Loop closure accepted
+</div>
+
+DAWN01 looked at the broken mirror…
+And said to herself:
+<span class="internal">“Now I know where I am…
+but I still don’t know why I’m here alone…
+or why the one who created me disappeared.”</span>
+
+A small breeze moved through the darkness, like a whisper:
+More secrets are coming.
+
+<div class="next">To be continued…</div>
             </div>
         </div>
     </div>
